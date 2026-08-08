@@ -157,38 +157,38 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
 
   return (
     <>
-      {/* Floating Toggle Button (Bottom-Right) */}
-      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 select-none">
-        {!isChatOpen && (
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/40 text-xs font-mono text-cyan-300 shadow-[0_0_15px_rgba(0,242,254,0.2)] animate-bounce">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Chat with Gourav's Digital Twin</span>
-          </div>
-        )}
-
+      {/* Single Sleek Unified Floating AI Button (Bottom-Right) */}
+      <div className="fixed bottom-6 right-6 z-50 select-none">
         <button
           onClick={toggleChat}
-          className={`relative p-4 rounded-2xl transition-all duration-300 shadow-2xl flex items-center justify-center border ${
+          className={`group relative flex items-center gap-3 px-4 py-3 rounded-full transition-all duration-300 shadow-2xl border backdrop-blur-xl ${
             isChatOpen
-              ? "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
-              : "bg-gradient-to-r from-cyan-500 via-emerald-500 to-cyan-600 text-slate-950 border-cyan-400 hover:scale-105 shadow-[0_0_30px_rgba(0,242,254,0.35)]"
+              ? "bg-slate-900/95 text-slate-300 border-slate-700 hover:bg-slate-800"
+              : "bg-slate-900/90 text-slate-100 border-cyan-500/50 hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(0,242,254,0.3)] hover:scale-[1.03]"
           }`}
-          title={isChatOpen ? "Close Digital Twin Chat" : "Ask Gourav's AI Digital Twin"}
+          title={isChatOpen ? "Close AI Digital Twin" : "Chat with Gourav's AI Digital Twin"}
         >
-          {/* Pulsing halo indicator */}
+          {/* Live Online Ping Badge */}
           {!isChatOpen && (
-            <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
+            <span className="absolute -top-1 -right-1 flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-slate-950"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border-2 border-slate-950"></span>
             </span>
           )}
 
           {isChatOpen ? (
-            <X className="w-6 h-6" />
+            <div className="flex items-center gap-2 font-mono text-xs font-semibold">
+              <X className="w-5 h-5 text-cyan-400" />
+              <span>CLOSE CHAT</span>
+            </div>
           ) : (
-            <div className="flex items-center gap-2 font-mono font-bold text-sm">
-              <Bot className="w-6 h-6 text-slate-950" />
-              <span className="hidden md:inline text-slate-950">AI TWIN</span>
+            <div className="flex items-center gap-2.5 font-mono text-xs font-semibold">
+              <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-cyan-500 to-emerald-400 flex items-center justify-center text-slate-950 font-bold shadow-md group-hover:rotate-12 transition-transform">
+                <Sparkles className="w-4 h-4 text-slate-950" />
+              </div>
+              <span className="tracking-wide text-cyan-300 group-hover:text-white transition-colors">
+                AI DIGITAL TWIN
+              </span>
             </div>
           )}
         </button>
