@@ -95,6 +95,27 @@ function getApiKey(): string {
   return "";
 }
 
+function getModelName(): string {
+  if (process.env.OPENROUTER_MODEL && process.env.OPENROUTER_MODEL.trim() !== "") {
+    return process.env.OPENROUTER_MODEL.trim();
+  }
+
+  try {
+    const envPath = path.join(process.cwd(), ".env");
+    if (fs.existsSync(envPath)) {
+      const content = fs.readFileSync(envPath, "utf-8");
+      const match = content.match(/OPENROUTER_MODEL\s*=\s*(.+)/);
+      if (match && match[1]) {
+        return match[1].trim();
+      }
+    }
+  } catch (err) {
+    console.error("Error reading .env fallback for OPENROUTER_MODEL:", err);
+  }
+
+  return "openrouter/free";
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { messages, model } = await req.json();
@@ -114,7 +135,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const targetModel = model || "openai/gpt-oss-20b:free";
+    const defaultEnvModel = getModelName();
+    const targetModel = model || defaultEnvModel;
 
     const payloadMessages = [
       { role: "system", content: SYSTEM_PROMPT },
@@ -144,9 +166,9 @@ export async function POST(req: NextRequest) {
       const errorText = await response.text();
       console.error("OpenRouter API error response:", errorText);
 
-      // Fallback model check if openai/gpt-oss-20b:free fails
-      if (targetModel === "openai/gpt-oss-20b:free") {
-        console.log("Attempting fallback model meta-llama/llama-3.1-8b-instruct:free...");
+      // Fallback model check: if requested model fails or rate-limits, fallback to openrouter/free
+      if (targetModel !== "openrouter/free") {
+        console.log("Attempting fallback model openrouter/free...");
         const fallbackRes = await fetch("https://openrouter.ai/api/v1/chat/completions", {
           method: "POST",
           headers: {
@@ -154,7 +176,7 @@ export async function POST(req: NextRequest) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            model: "meta-llama/llama-3.1-8b-instruct:free",
+            model: "openrouter/free",
             messages: payloadMessages,
             temperature: 0.7,
             max_tokens: 800,
@@ -166,9 +188,10 @@ export async function POST(req: NextRequest) {
           const assistantReply =
             fallbackData.choices?.[0]?.message?.content ||
             "Hello! I am Gourav's Digital Twin. How can I help you today?";
+          const actualModel = fallbackData.model || "openrouter/free";
           return NextResponse.json({
             reply: assistantReply,
-            modelUsed: "meta-llama/llama-3.1-8b-instruct:free (fallback)",
+            modelUsed: `${actualModel} (fallback)`,
           });
         }
       }
@@ -183,10 +206,11 @@ export async function POST(req: NextRequest) {
     const assistantReply =
       data.choices?.[0]?.message?.content ||
       "Hello! I am Gourav's Digital Twin. How can I help you today?";
+    const returnedModel = data.model || targetModel;
 
     return NextResponse.json({
       reply: assistantReply,
-      modelUsed: targetModel,
+      modelUsed: returnedModel,
     });
   } catch (err: any) {
     console.error("API Chat route error:", err);

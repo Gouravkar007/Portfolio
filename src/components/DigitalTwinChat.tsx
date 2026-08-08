@@ -47,8 +47,7 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
   const [inputMessage, setInputMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const defaultModel = "openai/gpt-oss-20b:free";
+  const [activeModel, setActiveModel] = useState<string>("openrouter/free");
 
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -57,7 +56,7 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
       content:
         "👋 Hello! I am **Gourav Kar's Digital Twin**, an AI model trained on Gourav's experience, Spring Boot backend expertise, machine learning projects, and qualifications.\n\nAsk me anything about Gourav's work at Acceleratron, dual-stage ML risk models, technical stack, or availability!",
       timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      modelUsed: defaultModel,
+      modelUsed: "openrouter/free",
     },
   ]);
 
@@ -103,7 +102,6 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: history,
-          model: defaultModel,
         }),
       });
 
@@ -113,12 +111,16 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
         throw new Error(data.error || "Failed to fetch response from OpenRouter API.");
       }
 
+      if (data.modelUsed) {
+        setActiveModel(data.modelUsed);
+      }
+
       const botMsg: Message = {
         id: `assistant-${Date.now()}`,
         role: "assistant",
         content: data.reply,
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        modelUsed: data.modelUsed || defaultModel,
+        modelUsed: data.modelUsed || activeModel,
       };
 
       setMessages((prev) => [...prev, botMsg]);
@@ -223,7 +225,7 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
                 <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
                   <Cpu className="w-3 h-3 text-cyan-400" />
                   <span>Model: </span>
-                  <span className="text-cyan-300 font-semibold">{defaultModel}</span>
+                  <span className="text-cyan-300 font-semibold">{activeModel}</span>
                 </div>
               </div>
             </div>
