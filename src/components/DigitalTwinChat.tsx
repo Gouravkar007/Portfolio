@@ -149,7 +149,7 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
         content:
           "Conversation cleared! I'm ready to answer any questions about Gourav's backend microservices, ML models, or background.",
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        modelUsed: defaultModel,
+        modelUsed: activeModel,
       },
     ]);
     setError(null);
