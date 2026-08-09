@@ -23,9 +23,9 @@ export const ProjectsSection: React.FC = () => {
         "Built dual-stage ML pipeline: General maternal health risk evaluation -> Specialized preeclampsia classifier.",
         "Integrated Google Gemini API to power an automated AI health guidance assistant.",
         "Developed interactive Streamlit dashboard with Plotly charts for clinical trends and metric visualizations.",
-        "Implemented automated PDF report generation and deployed full application on Render cloud with companion GitHub Pages landing page.",
+        "Implemented automated PDF report generation and deployed full application on Render cloud.",
       ],
-      githubUrl: "https://github.com/Gouravkar007",
+      githubUrl: "https://github.com/Gouravkar007/AI-Based-Maternal-Health-Preeclampsia-Risk-Prediction-System",
       liveUrl: "https://maternal-health-preeclampsia-system.onrender.com/",
       demoType: "ml-sim",
     },
@@ -43,7 +43,7 @@ export const ProjectsSection: React.FC = () => {
         "Implemented real-time stock tracking and transaction logging using SQL Server.",
         "Designed role-based access control (RBAC) ensuring seamless experience for both clients and internal staff.",
       ],
-      githubUrl: "https://github.com/Gouravkar007",
+      githubUrl: "https://github.com/Gouravkar007/ERP-PORTAL",
       demoType: "erp-sim",
     },
     {
@@ -60,7 +60,7 @@ export const ProjectsSection: React.FC = () => {
         "Integrated SQL Server for structured transactional management and order analytics.",
         "Created daily sales reporting and top-ordered item analytics pipeline.",
       ],
-      githubUrl: "https://github.com/Gouravkar007",
+      githubUrl: "https://github.com/Gouravkar007/A2Z-FASTFOOD",
       demoType: "api-sim",
     },
     {
@@ -77,7 +77,39 @@ export const ProjectsSection: React.FC = () => {
         "Transmits instant alert emails with device timestamp, user context, and IP details via Gmail SMTP.",
         "Maintains encrypted local logging for auditing and personal device monitoring.",
       ],
-      githubUrl: "https://github.com/Gouravkar007",
+      githubUrl: "https://github.com/Gouravkar007/Login-Alert",
+    },
+    {
+      id: "youtube-auto-pause",
+      title: "YouTube Auto-Pause Edge & Chrome Extension",
+      category: "Security & Tools",
+      period: "2025",
+      role: "Extension Developer",
+      stack: ["JavaScript", "Chrome Extension API", "Manifest V3", "Browser Event Listeners"],
+      description:
+        "Lightweight browser extension that automatically pauses YouTube playback when switching tabs and resumes when returning.",
+      highlights: [
+        "Monitors active browser tab state changes using Manifest V3.",
+        "Automatically pauses and resumes YouTube videos seamlessly.",
+        "Improves user focus and conserves bandwidth.",
+      ],
+      githubUrl: "https://github.com/Gouravkar007/youtube-auto-pause-extension",
+    },
+    {
+      id: "handwritten-digit",
+      title: "Handwritten Digit Recognition System",
+      category: "Machine Learning & AI",
+      period: "2025",
+      role: "ML Engineer",
+      stack: ["Python", "TensorFlow", "Keras", "MNIST", "OpenCV"],
+      description:
+        "Neural network model trained on the MNIST dataset capable of predicting handwritten digits (0–9) with high precision.",
+      highlights: [
+        "Built convolutional neural network using TensorFlow & Keras.",
+        "Preprocessed grayscale images using OpenCV filtering.",
+        "Achieved high accuracy on test digits.",
+      ],
+      githubUrl: "https://github.com/Gouravkar007/Handwritten-Digit-Prediction",
     },
   ];
 

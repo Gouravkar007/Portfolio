@@ -44,21 +44,24 @@ Here is Gourav Kar's complete knowledge base:
 
 [KEY PROJECTS]
 1. AI-Based Maternal Health & Preeclampsia Risk System (2026)
-   - Role: Full-Stack ML & Cloud Architect
+   - GitHub Repo: https://github.com/Gouravkar007/AI-Based-Maternal-Health-Preeclampsia-Risk-Prediction-System
+   - Live URL: https://maternal-health-preeclampsia-system.onrender.com/
    - Tech: Python, Scikit-learn, Pandas, NumPy, Streamlit, Plotly, Google Gemini API, Render
-   - Details: Dual-stage ML risk prediction pipeline (general maternal health score -> preeclampsia classifier), integrated Gemini API for clinical guidance, automated PDF reports.
 2. Garment Industry ERP Portal (June 2025 – August 2025)
-   - Role: Backend Developer
+   - GitHub Repo: https://github.com/Gouravkar007/ERP-PORTAL
    - Tech: Java, Spring Boot, SQL Server, RESTful APIs, Swagger
-   - Details: Production ERP system with real-time stock tracking, sales order workflows, role-based access control (RBAC), and SQL Server multi-tenant transactions.
 3. A2Z Fast Food — Terminal Food Ordering System (May 2025 – June 2025)
-   - Role: Backend Developer
+   - GitHub Repo: https://github.com/Gouravkar007/A2Z-FASTFOOD
    - Tech: Python, FastAPI, Pydantic, SQL Server, REST APIs
-   - Details: High-throughput terminal ordering platform with menu management, order validation, and billing analytics.
 4. Login Alert — Windows Security Notification Script (Sept 2025 – Nov 2025)
-   - Role: Scripting & Security Developer
+   - GitHub Repo: https://github.com/Gouravkar007/Login-Alert
    - Tech: Python, Gmail SMTP, Windows OS Scripting, Security Auditing
-   - Details: Background security tool capturing Windows auth events and sending real-time alert emails with IP and timestamp details.
+5. YouTube Auto-Pause Edge & Chrome Extension (2025)
+   - GitHub Repo: https://github.com/Gouravkar007/youtube-auto-pause-extension
+   - Tech: JavaScript, Chrome Extension API, Manifest V3
+6. Handwritten Digit Recognition System (2025)
+   - GitHub Repo: https://github.com/Gouravkar007/Handwritten-Digit-Prediction
+   - Tech: Python, TensorFlow, Keras, MNIST, OpenCV
 
 [EDUCATION]
 1. B.Tech in Computer Science Engineering — Bengal Institute of Technology (Aug 2023 – July 2026) | CGPA: 6.75
