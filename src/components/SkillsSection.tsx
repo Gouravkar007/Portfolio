@@ -62,12 +62,9 @@ export const SkillsSection: React.FC = () => {
         
         {/* Header */}
         <div className="flex flex-col items-center text-center space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-300">
-            <Wrench className="w-3.5 h-3.5 text-cyan-400" />
-            <span>TECHNICAL COMPETENCIES</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">
-            SKILLS MATRIX & <span className="text-gradient-cyan">ENGINEERING TOOLKIT</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-mono tracking-tight flex items-center gap-3 justify-center">
+            <Wrench className="w-8 h-8 text-cyan-400 shrink-0" />
+            <span>SKILLS MATRIX & <span className="text-gradient-cyan">ENGINEERING TOOLKIT</span></span>
           </h2>
           <p className="max-w-2xl text-slate-400 text-sm leading-relaxed">
             Categorized technical capabilities spanning Java Spring Boot backend engineering, machine learning pipelines, and cloud DevOps.

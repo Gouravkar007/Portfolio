@@ -30,12 +30,9 @@ export const CareerJourney: React.FC = () => {
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-300">
-            <Briefcase className="w-3.5 h-3.5 text-emerald-400" />
-            <span>ENTERPRISE EXPERIENCE</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">
-            CAREER <span className="text-gradient-emerald">JOURNEY</span> & IMPACT
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-mono tracking-tight flex items-center gap-3 justify-center">
+            <Briefcase className="w-8 h-8 text-emerald-400 shrink-0" />
+            <span>CAREER <span className="text-gradient-emerald">JOURNEY</span> & IMPACT</span>
           </h2>
           <p className="max-w-2xl text-slate-400 text-sm leading-relaxed">
             Real-world backend engineering experience in fast-paced Agile environments delivering production-grade microservices.

@@ -28,12 +28,9 @@ export const ContactSection: React.FC = () => {
         
         {/* Header */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-300">
-            <Mail className="w-3.5 h-3.5 text-cyan-400" />
-            <span>EXECUTIVE CONNECT HUB</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-mono tracking-tight">
-            PROFESSIONAL IDENTITY & <span className="text-gradient-cyan">SOCIAL HUB</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-mono tracking-tight flex items-center gap-3 justify-center">
+            <Mail className="w-8 h-8 text-cyan-400 shrink-0" />
+            <span>PROFESSIONAL IDENTITY & <span className="text-gradient-cyan">SOCIAL HUB</span></span>
           </h2>
           <p className="max-w-2xl text-slate-400 text-sm leading-relaxed">
             All professional channels, repositories, social links, and direct contacts consolidated into one executive area.

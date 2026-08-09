@@ -64,12 +64,9 @@ export const AboutSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-300">
-            <UserCheck className="w-3.5 h-3.5 text-cyan-400" />
-            <span>EXECUTIVE SUMMARY & PILLARS</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-mono tracking-tight">
-            ENGINEERING <span className="text-gradient-cyan">PHILOSOPHY</span> & BACKGROUND
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-mono tracking-tight flex items-center gap-3 justify-center">
+            <UserCheck className="w-8 h-8 text-cyan-400 shrink-0" />
+            <span>ENGINEERING <span className="text-gradient-cyan">PHILOSOPHY</span> & BACKGROUND</span>
           </h2>
           <p className="max-w-2xl text-slate-400 text-sm leading-relaxed">
             Bridging enterprise backend stability with modern AI intelligence. Computer Science graduate with hands-on experience in production REST APIs and ML workflows.

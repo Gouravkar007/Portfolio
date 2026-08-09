@@ -126,12 +126,9 @@ export const ProjectsSection: React.FC = () => {
         
         {/* Header */}
         <div className="flex flex-col items-center text-center space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-xs font-mono text-purple-300">
-            <Code2 className="w-3.5 h-3.5 text-purple-400" />
-            <span>PORTFOLIO & SYSTEM DEMOS</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">
-            FEATURED <span className="text-gradient-purple">PROJECTS</span> & ARCHITECTURE
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-mono tracking-tight flex items-center gap-3 justify-center">
+            <Code2 className="w-8 h-8 text-purple-400 shrink-0" />
+            <span>FEATURED <span className="text-gradient-purple">PROJECTS</span> & ARCHITECTURE</span>
           </h2>
           <p className="max-w-2xl text-slate-400 text-sm leading-relaxed">
             Production backends, AI-powered health assessment systems, enterprise ERP portals, and security automation tools.
