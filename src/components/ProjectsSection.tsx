@@ -25,8 +25,8 @@ export const ProjectsSection: React.FC = () => {
         "Developed interactive Streamlit dashboard with Plotly charts for clinical trends and metric visualizations.",
         "Implemented automated PDF report generation and deployed full application on Render cloud with companion GitHub Pages landing page.",
       ],
-      githubUrl: "https://github.com/GouravKar",
-      liveUrl: "https://render.com",
+      githubUrl: "https://github.com/Gouravkar007",
+      liveUrl: "https://maternal-health-preeclampsia-system.onrender.com/",
       demoType: "ml-sim",
     },
     {
@@ -43,7 +43,7 @@ export const ProjectsSection: React.FC = () => {
         "Implemented real-time stock tracking and transaction logging using SQL Server.",
         "Designed role-based access control (RBAC) ensuring seamless experience for both clients and internal staff.",
       ],
-      githubUrl: "https://github.com/GouravKar",
+      githubUrl: "https://github.com/Gouravkar007",
       demoType: "erp-sim",
     },
     {
@@ -60,7 +60,7 @@ export const ProjectsSection: React.FC = () => {
         "Integrated SQL Server for structured transactional management and order analytics.",
         "Created daily sales reporting and top-ordered item analytics pipeline.",
       ],
-      githubUrl: "https://github.com/GouravKar",
+      githubUrl: "https://github.com/Gouravkar007",
       demoType: "api-sim",
     },
     {
@@ -77,7 +77,7 @@ export const ProjectsSection: React.FC = () => {
         "Transmits instant alert emails with device timestamp, user context, and IP details via Gmail SMTP.",
         "Maintains encrypted local logging for auditing and personal device monitoring.",
       ],
-      githubUrl: "https://github.com/GouravKar",
+      githubUrl: "https://github.com/Gouravkar007",
     },
   ];
 
@@ -172,7 +172,7 @@ export const ProjectsSection: React.FC = () => {
 
                 <div className="flex items-center gap-3 text-slate-400">
                   <a
-                    href={project.githubUrl || "https://github.com/GouravKar"}
+                    href={project.githubUrl || "https://github.com/Gouravkar007"}
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-white transition-colors"
