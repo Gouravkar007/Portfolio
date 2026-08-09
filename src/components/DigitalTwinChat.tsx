@@ -13,6 +13,7 @@ import {
   ChevronDown,
   CornerDownLeft,
   AlertCircle,
+  Search,
 } from "lucide-react";
 
 interface Message {
@@ -157,6 +158,14 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
 
   return (
     <>
+      {/* Glassmorphism Dark Backdrop Overlay with Smooth Blur */}
+      {isChatOpen && (
+        <div
+          onClick={toggleChat}
+          className="fixed inset-0 z-40 bg-[#07090e]/70 backdrop-blur-md transition-all animate-in fade-in duration-300 cursor-pointer"
+        />
+      )}
+
       {/* Floating Glassmorphism Chat Drawer */}
       {isChatOpen && (
         <div className="fixed bottom-6 right-4 sm:right-6 w-[92vw] sm:w-[440px] h-[580px] max-h-[85vh] z-50 rounded-2xl border border-slate-800 bg-[#090d16]/95 backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300 font-mono text-xs">
@@ -212,6 +221,27 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
           >
             {messages.map((msg) => {
               const isUser = msg.role === "user";
+
+              // Parse Related Searches if present in assistant response
+              let mainContent = msg.content;
+              let relatedSearches: string[] = [];
+
+              if (!isUser) {
+                const match = msg.content.match(/\[RELATED_SEARCHES:\s*(.*?)\]/s);
+                if (match) {
+                  try {
+                    const rawJson = `[${match[1]}]`;
+                    relatedSearches = JSON.parse(rawJson);
+                  } catch {
+                    const matches = match[1].match(/"([^"]+)"/g);
+                    if (matches) {
+                      relatedSearches = matches.map((s) => s.replace(/"/g, ""));
+                    }
+                  }
+                  mainContent = msg.content.replace(/\[RELATED_SEARCHES:\s*.*?\]/s, "").trim();
+                }
+              }
+
               return (
                 <div
                   key={msg.id}
@@ -221,22 +251,52 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
                     className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 ${
                       isUser
                         ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
-                        : "bg-slate-900 text-emerald-400 border-slate-700"
+                        : "bg-gradient-to-tr from-cyan-500/20 to-emerald-500/20 text-cyan-300 border-cyan-500/40 shadow-sm"
                     }`}
                   >
-                    {isUser ? <User className="w-3.5 h-3.5" /> : <Bot className="w-3.5 h-3.5" />}
+                    {isUser ? <User className="w-3.5 h-3.5" /> : <Bot className="w-3.5 h-3.5 text-cyan-400" />}
                   </div>
 
                   <div
-                    className={`max-w-[82%] p-3.5 rounded-2xl space-y-1 text-slate-200 leading-relaxed font-sans text-xs ${
+                    className={`max-w-[85%] p-4 rounded-2xl space-y-2 leading-relaxed font-sans text-xs ${
                       isUser
                         ? "bg-cyan-500/15 border border-cyan-500/30 text-white rounded-tr-none"
-                        : "bg-slate-900/90 border border-slate-800 rounded-tl-none"
+                        : "bg-slate-900/95 border border-slate-800/90 text-slate-200 rounded-tl-none shadow-xl"
                     }`}
                   >
-                    <div className="whitespace-pre-wrap">{msg.content}</div>
+                    {/* Google AI Overview Badge for Assistant Messages */}
+                    {!isUser && (
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-[10px] font-mono text-cyan-300 mb-1">
+                        <Sparkles className="w-3 h-3 text-cyan-400" />
+                        <span className="font-semibold uppercase tracking-wider">AI SEARCH OVERVIEW</span>
+                      </div>
+                    )}
 
-                    <div className="flex items-center justify-between pt-1 border-t border-slate-800/40 text-[9px] font-mono text-slate-500">
+                    <div className="whitespace-pre-wrap">{mainContent}</div>
+
+                    {/* Google Style "People Also Ask..." Interactive Search Chips */}
+                    {!isUser && relatedSearches.length > 0 && (
+                      <div className="pt-3 border-t border-slate-800/80 space-y-2 mt-2">
+                        <div className="flex items-center gap-1.5 text-[10px] font-mono text-slate-400 font-semibold">
+                          <Search className="w-3 h-3 text-cyan-400" />
+                          <span>People also ask:</span>
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          {relatedSearches.map((query, qIdx) => (
+                            <button
+                              key={qIdx}
+                              onClick={() => handleSendMessage(query)}
+                              className="text-left px-3 py-1.5 rounded-lg bg-slate-950/80 border border-slate-800 text-cyan-300 hover:border-cyan-500/50 hover:text-white transition-all text-[11px] font-mono flex items-center justify-between group"
+                            >
+                              <span>{query}</span>
+                              <CornerDownLeft className="w-3 h-3 text-slate-500 group-hover:text-cyan-400 transition-colors shrink-0 ml-2" />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-800/40 text-[9px] font-mono text-slate-500">
                       <span>{msg.timestamp}</span>
                       {msg.modelUsed && !isUser && (
                         <span className="text-cyan-400/80">via OpenRouter</span>
