@@ -227,7 +227,7 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
               let relatedSearches: string[] = [];
 
               if (!isUser) {
-                const match = msg.content.match(/\[RELATED_SEARCHES:\s*(.*?)\]/s);
+                const match = msg.content.match(/\[RELATED_SEARCHES:\s*([\s\S]*?)\]/);
                 if (match) {
                   try {
                     const rawJson = `[${match[1]}]`;
@@ -238,7 +238,7 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
                       relatedSearches = matches.map((s) => s.replace(/"/g, ""));
                     }
                   }
-                  mainContent = msg.content.replace(/\[RELATED_SEARCHES:\s*.*?\]/s, "").trim();
+                  mainContent = msg.content.replace(/\[RELATED_SEARCHES:\s*[\s\S]*?\]/, "").trim();
                 }
               }
 
