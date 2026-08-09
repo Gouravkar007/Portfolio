@@ -22,7 +22,7 @@ export default function Home() {
       {/* Global Navigation */}
       <Navbar
         onOpenResume={() => setIsResumeModalOpen(true)}
-        onOpenChat={() => setIsChatOpen(true)}
+        // onOpenChat={() => setIsChatOpen(true)} // Temporarily hidden for live deployment
       />
 
       {/* Hero Section */}
