@@ -162,8 +162,8 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         model: targetModel,
         messages: payloadMessages,
-        temperature: 0.7,
-        max_tokens: 900,
+        temperature: 0.6,
+        max_tokens: 450,
       }),
     });
 
@@ -171,9 +171,9 @@ export async function POST(req: NextRequest) {
       const errorText = await response.text();
       console.error("OpenRouter API error response:", errorText);
 
-      // Fallback model check: if requested model fails or rate-limits, fallback to openrouter/free
-      if (targetModel !== "openrouter/free") {
-        console.log("Attempting fallback model openrouter/free...");
+      // Fast fallback to google/gemma-4-26b-a4b-it:free if target model is busy
+      if (targetModel !== "google/gemma-4-26b-a4b-it:free") {
+        console.log("Attempting fast fallback model google/gemma-4-26b-a4b-it:free...");
         const fallbackRes = await fetch("https://openrouter.ai/api/v1/chat/completions", {
           method: "POST",
           headers: {
@@ -181,10 +181,10 @@ export async function POST(req: NextRequest) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            model: "openrouter/free",
+            model: "google/gemma-4-26b-a4b-it:free",
             messages: payloadMessages,
-            temperature: 0.7,
-            max_tokens: 900,
+            temperature: 0.6,
+            max_tokens: 450,
           }),
         });
 
@@ -193,7 +193,7 @@ export async function POST(req: NextRequest) {
           const assistantReply =
             fallbackData.choices?.[0]?.message?.content ||
             "Hello! I am Gourav's Digital Twin. How can I help you today?";
-          const actualModel = fallbackData.model || "openrouter/free";
+          const actualModel = fallbackData.model || "google/gemma-4-26b-a4b-it:free";
           return NextResponse.json({
             reply: assistantReply,
             modelUsed: `${actualModel} (fallback)`,
