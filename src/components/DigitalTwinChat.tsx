@@ -188,10 +188,9 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
                     DIGITAL TWIN
                   </span>
                 </div>
-                <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
-                  <Cpu className="w-3 h-3 text-cyan-400" />
-                  <span>Model: </span>
-                  <span className="text-cyan-300 font-semibold">{activeModel}</span>
+                <div className="flex items-center gap-1 text-[10px] text-slate-400">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span>Online | AI Twin</span>
                 </div>
               </div>
             </div>
@@ -298,9 +297,6 @@ export const DigitalTwinChat: React.FC<DigitalTwinChatProps> = ({
 
                     <div className="flex items-center justify-between pt-2 border-t border-slate-800/40 text-[9px] font-mono text-slate-500">
                       <span>{msg.timestamp}</span>
-                      {msg.modelUsed && !isUser && (
-                        <span className="text-cyan-400/80">via OpenRouter</span>
-                      )}
                     </div>
                   </div>
                 </div>

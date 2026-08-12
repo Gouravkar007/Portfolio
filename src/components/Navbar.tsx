@@ -45,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, onOpenChat }) => {
           <div>
             <div className="flex items-center gap-2">
               <span className="font-mono font-bold text-white tracking-wider text-base">
-                GOURAV<span className="text-cyan-400">.KAR</span>
+                GOURAV<span className="text-cyan-400">KAR</span>
               </span>
               <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping mr-1"></span>
