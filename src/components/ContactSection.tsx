@@ -8,18 +8,39 @@ export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    setErrorMsg(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setIsSent(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setIsSent(false), 5000);
+      } else {
+        setErrorMsg(data.error || "Failed to transmit message. Please try again.");
+      }
+    } catch (err: any) {
+      setErrorMsg("Failed to connect to the server. Please check your network connection.");
+      console.error("Submission error:", err);
+    } finally {
       setIsSubmitting(false);
-      setIsSent(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setIsSent(false), 5000);
-    }, 1000);
+    }
   };
 
   return (
@@ -200,10 +221,17 @@ export const ContactSection: React.FC = () => {
                   />
                 </div>
 
+                {errorMsg && (
+                  <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 font-mono animate-in fade-in duration-300">
+                    <p className="font-bold">Transmission Failed</p>
+                    <p className="text-[11px] mt-1">{errorMsg}</p>
+                  </div>
+                )}
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 rounded-xl bg-cyan-500 text-slate-950 font-bold font-mono text-sm hover:bg-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(0,242,254,0.3)] flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded-xl bg-cyan-500 text-slate-950 font-bold font-mono text-sm hover:bg-cyan-400 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(0,242,254,0.3)] flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <span>Transmitting...</span>
