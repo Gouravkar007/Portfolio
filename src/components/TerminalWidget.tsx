@@ -72,10 +72,12 @@ export const TerminalWidget: React.FC = () => {
       case "projects":
         newLogs.push(
           { type: "out", text: "[FEATURED PROJECTS]" },
-          { type: "out", text: "1. AI Maternal Health & Preeclampsia Risk Prediction System (Python/ML/Render)" },
-          { type: "out", text: "2. Garment Industry ERP Portal (Spring Boot/SQL Server)" },
-          { type: "out", text: "3. A2Z Fast Food Terminal Ordering App (FastAPI/Python)" },
-          { type: "out", text: "4. Login Alert Windows Security Script (Python/SMTP)" }
+          { type: "out", text: "1. FinNexus — Market Streaming & Portfolio Heatmap Hub (Python/FastAPI/AI)" },
+          { type: "out", text: "2. Prelegal — AI Legal Agreement Drafting Platform (Python/LLM/NLP)" },
+          { type: "out", text: "3. AI Maternal Health & Preeclampsia Risk System (Python/ML/Render)" },
+          { type: "out", text: "4. Garment Industry ERP Portal (Spring Boot/SQL Server)" },
+          { type: "out", text: "5. A2Z Fast Food Terminal Ordering App (FastAPI/Python)" },
+          { type: "out", text: "6. Login Alert Windows Security Script (Python/SMTP)" }
         );
         break;
 

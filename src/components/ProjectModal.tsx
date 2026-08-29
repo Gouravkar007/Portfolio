@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X, ExternalLink, Cpu, Activity, ShieldAlert, Sparkles, CheckCircle2, RefreshCw, FileText } from "lucide-react";
 import { GithubIcon } from "./SocialIcons";
 
@@ -24,6 +24,16 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && project) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [project, onClose]);
+
   if (!project) return null;
 
   // ML Simulation state
@@ -230,7 +240,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <a
-                href={project.githubUrl || "https://github.com/GouravKar"}
+                href={project.githubUrl || "https://github.com/Gouravkar007"}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 text-xs font-mono text-slate-300 hover:text-cyan-400 transition-colors"

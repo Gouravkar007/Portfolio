@@ -36,27 +36,35 @@ CRITICAL FORMATTING RULES:
   4. Awarded official Team Management Recognition Award for coordinating sprint deliverables.
 
 [KEY PROJECTS]
-1. AI-Based Maternal Health & Preeclampsia Risk System (2026)
+1. FinNexus — Financial Intelligence & Market Streaming Hub (2026)
+   - GitHub: https://github.com/Gouravkar007/FinNexus
+   - Tech: Python, FastAPI, WebSockets, Pandas, AI Analytics, Streamlit, Plotly
+   - Details: Central financial intelligence hub connecting live market data streaming, dynamic portfolio heatmaps, and AI-driven predictive insights.
+2. Prelegal — AI Legal Agreement Drafting Platform (2026)
+   - GitHub: https://github.com/Gouravkar007/prelegal
+   - Tech: Python, LLM Integration, NLP, FastAPI, Streamlit, Document Processing
+   - Details: Intelligent legal tech platform designed for streamlining the creation, validation, and customized drafting of binding legal contracts and agreements.
+3. AI-Based Maternal Health & Preeclampsia Risk System (2026)
    - GitHub: https://github.com/Gouravkar007/AI-Based-Maternal-Health-Preeclampsia-Risk-Prediction-System
    - Live Demo: https://maternal-health-preeclampsia-system.onrender.com/
    - Tech: Python, Scikit-learn, Pandas, NumPy, Streamlit, Plotly, Google Gemini API, Render
    - Details: Dual-stage ML risk prediction pipeline (general maternal health score -> preeclampsia classifier), integrated Gemini API for clinical guidance, automated PDF reports.
-2. Garment Industry ERP Portal (June 2025 – August 2025)
+4. Garment Industry ERP Portal (June 2025 – August 2025)
    - GitHub: https://github.com/Gouravkar007/ERP-PORTAL
    - Tech: Java 17, Spring Boot, SQL Server, RESTful APIs, Swagger
    - Details: Production ERP system with real-time stock tracking, sales order workflows, role-based access control (RBAC), and SQL Server multi-tenant transactions.
-3. A2Z Fast Food — Terminal Food Ordering System (May 2025 – June 2025)
+5. A2Z Fast Food — Terminal Food Ordering System (May 2025 – June 2025)
    - GitHub: https://github.com/Gouravkar007/A2Z-FASTFOOD
    - Tech: Python, FastAPI, Pydantic, SQL Server, REST APIs
    - Details: High-throughput terminal ordering platform with menu management, order validation, and billing analytics.
-4. Login Alert — Windows Security Notification Script (Sept 2025 – Nov 2025)
+6. Login Alert — Windows Security Notification Script (Sept 2025 – Nov 2025)
    - GitHub: https://github.com/Gouravkar007/Login-Alert
    - Tech: Python, Gmail SMTP, Windows OS Scripting, Security Auditing
    - Details: Background security tool capturing Windows auth events and sending real-time alert emails with IP and timestamp details.
-5. YouTube Auto-Pause Edge & Chrome Extension (2025)
+7. YouTube Auto-Pause Edge & Chrome Extension (2025)
    - GitHub: https://github.com/Gouravkar007/youtube-auto-pause-extension
    - Tech: JavaScript, Chrome Extension API, Manifest V3
-6. Handwritten Digit Recognition System (2025)
+8. Handwritten Digit Recognition System (2025)
    - GitHub: https://github.com/Gouravkar007/Handwritten-Digit-Prediction
    - Tech: Python, TensorFlow, Keras, MNIST, OpenCV
 
@@ -118,13 +126,15 @@ function getModelName(): string {
     console.error("Error reading .env fallback for OPENROUTER_MODEL:", err);
   }
 
-  return "google/gemma-4-26b-a4b-it:free";
+  return "minimax/minimax-m3:free";
 }
 
 const FALLBACK_MODELS = [
+  "minimax/minimax-m3:free",
+  "nvidia/nemotron-3-super-120b-a12b:free",
+  "nvidia/nemotron-3.5-lightning:free",
   "google/gemma-4-26b-a4b-it:free",
-  "openai/gpt-oss-20b:free",
-  "openrouter/free",
+  "liquid/lfm-2.5-2.6b:free",
 ];
 
 export async function POST(req: NextRequest) {

@@ -79,7 +79,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
               <div className="flex items-center gap-3 pl-2 border-l border-slate-800">
                 <a
-                  href="https://github.com/GouravKar"
+                  href="https://github.com/Gouravkar007"
                   target="_blank"
                   rel="noreferrer"
                   className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-all"

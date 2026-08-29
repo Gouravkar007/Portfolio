@@ -11,6 +11,38 @@ export const ProjectsSection: React.FC = () => {
 
   const projects: ProjectData[] = [
     {
+      id: "finnexus",
+      title: "FinNexus — Financial Intelligence & Market Streaming Hub",
+      category: "Machine Learning & AI",
+      period: "2026",
+      role: "Full-Stack & AI Systems Developer",
+      stack: ["Python", "FastAPI", "WebSockets", "Pandas", "AI Analytics", "Streamlit", "Plotly"],
+      description:
+        "Central financial intelligence hub connecting live market data streaming, interactive portfolio heatmaps, and AI-driven predictive insights.",
+      highlights: [
+        "Architected real-time streaming pipeline for live market quotes, ticker feeds, and trade metrics.",
+        "Engineered dynamic portfolio heatmaps and risk-adjusted return visualizations.",
+        "Integrated AI financial intelligence assistant for automated market summary generation and asset allocation guidance.",
+      ],
+      githubUrl: "https://github.com/Gouravkar007/FinNexus",
+    },
+    {
+      id: "prelegal",
+      title: "Prelegal — AI Legal Agreement Drafting Platform",
+      category: "Security & Tools",
+      period: "2026",
+      role: "AI & Backend Engineer",
+      stack: ["Python", "LLM Integration", "NLP", "FastAPI", "Streamlit", "Document Processing"],
+      description:
+        "Intelligent legal tech platform designed for streamlining the creation, validation, and customized drafting of binding legal contracts and agreements.",
+      highlights: [
+        "Automated generation of legally sound agreements with modular clause customization and template control.",
+        "Integrated AI/LLM models for contract risk analysis, obligation extraction, and clause verification.",
+        "Designed structured document export pipelines with audit-ready legal validation workflows.",
+      ],
+      githubUrl: "https://github.com/Gouravkar007/prelegal",
+    },
+    {
       id: "maternal-ml",
       title: "AI-Based Maternal Health & Preeclampsia Risk System",
       category: "Machine Learning & AI",

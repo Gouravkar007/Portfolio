@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
           {/* Social Links */}
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com/GouravKar"
+              href="https://github.com/Gouravkar007"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"

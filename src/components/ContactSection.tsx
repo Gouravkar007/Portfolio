@@ -102,7 +102,7 @@ export const ContactSection: React.FC = () => {
 
                 {/* GitHub Card */}
                 <a
-                  href="https://github.com/GouravKar"
+                  href="https://github.com/Gouravkar007"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center justify-between p-4 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all group shadow-md"
@@ -113,7 +113,7 @@ export const ContactSection: React.FC = () => {
                     </div>
                     <div>
                       <span className="font-bold text-white block text-sm group-hover:text-cyan-300 transition-colors">GitHub Repositories</span>
-                      <span className="text-[11px] text-slate-400">github.com/GouravKar</span>
+                      <span className="text-[11px] text-slate-400">github.com/Gouravkar007</span>
                     </div>
                   </div>
                   <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 transition-colors" />
