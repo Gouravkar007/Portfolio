@@ -36,7 +36,6 @@ export const AboutSection: React.FC = () => {
       degree: "B.Tech in Computer Science Engineering",
       institution: "Bengal Institute of Technology",
       period: "August 2023 – July 2026",
-      score: "CGPA: 6.75",
       details: "Advanced coursework in Data Structures, Backend Systems, Machine Learning, and Software Architecture.",
       active: true,
     },
@@ -44,7 +43,6 @@ export const AboutSection: React.FC = () => {
       degree: "Diploma in Computer Science Engineering",
       institution: "Raghunathpur Government Polytechnic",
       period: "June 2021 – August 2023",
-      score: "78.6%",
       details: "Strong foundation in Core Java, Python, Operating Systems, and Relational Databases.",
       active: false,
     },
@@ -52,7 +50,6 @@ export const AboutSection: React.FC = () => {
       degree: "10th Grade – WBBSE",
       institution: "Kamalpur Netaji High School",
       period: "February 2020",
-      score: "65%",
       details: "Secondary education with focus on Mathematics and General Sciences.",
       active: false,
     },
@@ -150,9 +147,6 @@ export const AboutSection: React.FC = () => {
                 <div className="text-xs font-mono text-cyan-400 mb-1">{edu.period}</div>
                 <h4 className="font-mono font-bold text-white text-base mb-1">{edu.degree}</h4>
                 <div className="text-xs text-slate-300 font-medium mb-3">{edu.institution}</div>
-                <div className="inline-block px-2.5 py-1 rounded bg-slate-800 text-emerald-400 font-mono text-xs font-bold mb-3 border border-slate-700">
-                  {edu.score}
-                </div>
                 <p className="text-xs text-slate-400 leading-relaxed">{edu.details}</p>
               </div>
             ))}

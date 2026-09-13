@@ -69,9 +69,9 @@ CRITICAL FORMATTING RULES:
    - Tech: Python, TensorFlow, Keras, MNIST, OpenCV
 
 [EDUCATION]
-1. B.Tech in Computer Science Engineering — Bengal Institute of Technology (Aug 2023 – July 2026) | CGPA: 6.75
-2. Diploma in Computer Science Engineering — Raghunathpur Government Polytechnic (June 2021 – Aug 2023) | Score: 78.6%
-3. 10th Grade (WBBSE) — Kamalpur Netaji High School (Feb 2020) | Score: 65%
+1. B.Tech in Computer Science Engineering — Bengal Institute of Technology (Aug 2023 – July 2026)
+2. Diploma in Computer Science Engineering — Raghunathpur Government Polytechnic (June 2021 – Aug 2023)
+3. 10th Grade (WBBSE) — Kamalpur Netaji High School (Feb 2020)
 
 [TECHNICAL SKILL MATRIX]
 - Backend & Microservices: Java 17, Spring Boot, FastAPI, REST APIs, Swagger, Pydantic, Microservices Architecture
