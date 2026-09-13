@@ -39,7 +39,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
           <div className="flex items-center gap-3">
             <a
-              href="/Gourav_Kar_Resume.pdf"
+              href="/Gourav%20kar.pdf"
               download="Gourav_Kar_Resume.pdf"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-mono text-xs font-bold hover:bg-cyan-400 transition-colors shadow-[0_0_15px_rgba(0,242,254,0.3)]"
             >
@@ -59,7 +59,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         {/* PDF Viewer Canvas */}
         <div className="flex-1 bg-slate-950 relative overflow-hidden">
           <iframe
-            src="/Gourav_Kar_Resume.pdf#toolbar=1"
+            src="/Gourav%20kar.pdf#toolbar=1"
             className="w-full h-full border-none"
             title="Gourav Kar Resume PDF"
           />
